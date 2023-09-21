@@ -9,19 +9,16 @@ import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
-
-
 /**
  *
  * @author ST10257468 - Bela Jyoti Premchund
  */
 public class StudentTest {
     //this is to assign values to the variables in the constructor
-       Student student = new Student("10111", "J.Boyd", 18, "jamesb@gmail.com", "bcad");
+       Student student = new Student("10111", "J.Bloggs", 19, "jbloggs@gmail.com", "disd");
         
     @Test
     public void testSaveStudent(){        
-        
         //test the getters
         assertEquals("10111", student.getId());
         assertEquals("J.Boyd", student.getName());
@@ -37,16 +34,16 @@ public class StudentTest {
        student.searchStudent("10111");
        
        assertEquals("10111", student.getId());
-       assertEquals("J.Boyd", student.getName());
-       assertEquals(18, student.getAge());
-       assertEquals("jamesb@gmail.com", student.getEmail());
-       assertEquals("bcad", student.getCourse());
+       assertEquals("J.Bloggs", student.getName());
+       assertEquals(19, student.getAge());
+       assertEquals("jbloggs@gmail.com", student.getEmail());
+       assertEquals("disd", student.getCourse());
     }
     
     @Test
     public void testSearchStudent_StudentNotFound(){
         student.saveStudent();
-       Student testStudent = new Student("10111", "J.Boyd", 18, "jamesb@gmail.com", "bcad");
+       Student testStudent = new Student("10111", "J.Bloggs", 19, "jbloggs@gmail.com", "disd");
        student.searchStudent("10112");
        
        testStudent.searchStudent("10112");
@@ -63,10 +60,10 @@ public class StudentTest {
 
     // Check that the student has been deleted by verifying that the ID is not present in the lists
     assertFalse(student.ID.contains("10111"));
-    assertFalse(student.names.contains("J.Boyd"));
-    assertFalse(student.ages.contains(18));
-    assertFalse(student.emails.contains("jamesb@gmail.com"));
-    assertFalse(student.courses.contains("bcad"));
+    assertFalse(student.names.contains("J.Bloggs"));
+    assertFalse(student.ages.contains(19));
+    assertFalse(student.emails.contains("jbloggs@gmail.com"));
+    assertFalse(student.courses.contains("disd"));
 }
     
     
@@ -74,15 +71,15 @@ public class StudentTest {
     public void testDeleteStudent_StudentNotFound(){
         student.deleteStudent("10114");
         assertFalse(student.ID.contains("10114"));
-        assertFalse(student.names.contains("J.Boyd"));
-        assertFalse(student.ages.contains(18));
-        assertFalse(student.emails.contains("jamesb@gmail.com"));
-        assertFalse(student.courses.contains("bcad"));
+        assertFalse(student.names.contains("J.Bloggs"));
+        assertFalse(student.ages.contains(19));
+        assertFalse(student.emails.contains("jbloggs@gmail.com"));
+        assertFalse(student.courses.contains("disd"));
     }
     
     @Test
     public void testStudentAge_StudentAgeValid(){
-        assertEquals(18, student.getAge());
+        assertEquals(19, student.getAge());
     }
     
     @Test
