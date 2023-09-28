@@ -109,6 +109,11 @@ class Student {
         
         //search through the arrays
         for (int i = 0; i < ID.size(); i++) {
+        /*
+        why is size() used instead of .length?
+        size() is used to get the number of elements in an array,
+        whereas .length is used for arrays that have a fixed number of elements
+        */
             if (ID.get(i).equalsIgnoreCase(searchQuery)) {
                 //display info
                 System.out.println("STUDENT ID: " + ID.get(i));
@@ -123,15 +128,11 @@ class Student {
                 System.out.println("Student with Student Id: " + searchQuery + " was not found!");
             }
         }
-        /*
-        why is size() used instead of .length?
-        size() is used to get the number of elements in an array,
-        whereas .length is used for arrays that have a fixed number of elements
-        */
+        
         System.out.println("---------------------------------------------------------");
     }
     
-    public void deleteStudent(String deleteQuery){
+    public boolean deleteStudent(String deleteQuery){
         //I chose to declare all the variables together to make it easier to see whcich variables are used
         String conform = "";
         boolean studentDeleted = false;
@@ -164,6 +165,7 @@ class Student {
             System.out.println("Student with Student Id: " + deleteQuery + " WAS NOT deleted!");
         }
         System.out.println("---------------------------------------------------------");
+        return studentDeleted;
         
     }
     
@@ -193,4 +195,3 @@ class Student {
     }
     
 }
-
